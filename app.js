@@ -1,20 +1,71 @@
-// Importer et exécuter le code dans
-// carousel.js et navbar.js
+'use strict';
 
-// 3. on vient importer l'élément en précisant le fichier
-import {displayCarousel} from './carousel.js';
+// Fonction constructeur
+/*
+function Vehicle(model, brand) {
+    this.engine = true;
+    this.model = model;
+    this.brand = brand;
 
-displayCarousel();
-
-
-
-/* 
-Créer un fichier game.js avec deux fonctions: 
-createGame qui vient créer une partie avec deux joueurs possédant chacun 10 points
-removePoints qui enlève 1 point au joueur spécifié 
-    (si 1 est précisé en paramètre, on enlève au joueur 1. 
-    Si 2 précisé, on enlève au joueur 2)
-
-Créer un fichier app.js qui lance une partie et 
-fait perdre 2 points au joueur 1 et 1 au joueur 2
+    this.honk = function () {
+        console.log("tututttt");
+    }
+}
 */
+
+// La même chose en classe
+
+class Vehicle {
+    engine = true;
+
+    constructor(model, brand) {
+        this.model = model;
+        this.brand = brand;
+    }
+
+    // Klaxonner en français
+    honk() {
+        console.log("Tututtttttt");
+    }
+}
+
+
+let monVehiculeDeOuf = new Vehicle("Mad", "Ford");
+console.log(monVehiculeDeOuf);
+monVehiculeDeOuf.honk();
+// monVehiculeDeOuf.launchWiper() -> ne fonctionne pas car appartient à classe
+//  Fille!
+
+
+
+// ----- 
+// Supposons que j'aimerai plusieurs types de véhicule dans mon code
+// Par exemple, je voudrai que l'utilisateur puisse avoir une voiture
+// Mais aussi potentiellement une moto
+
+// Hors...
+// Une moto est un véhicule
+// Une voiture est un véhicule
+// Donc, il y a un risque d'une répétition de code.
+
+
+// Pour éviter ça, on va utiliser ce que l'on appelle l'héritage
+// où une classe fille viendra hériter d'une classe mère
+// Donc on va pouvoir créer un objet qui récupère l'adn du papa
+// Mais aussi une part de son propre ADN
+
+
+class Car extends Vehicle  {
+    nbWheels = 4;
+
+    // wiper -> essuie-glace en français
+    launchWiper() {
+        console.log("C'est parti pour les essuies-glace");
+    }
+}
+
+
+let myCar = new Car("Max", "Mazda");
+console.log(myCar);
+myCar.honk(); // Hérite d'une classe mère donc fonctionne
+myCar.launchWiper();
