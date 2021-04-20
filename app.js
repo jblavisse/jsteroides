@@ -1,27 +1,20 @@
-"use strict";
+// Importer et exécuter le code dans
+// carousel.js et navbar.js
 
-let age=12;
+// 3. on vient importer l'élément en précisant le fichier
+import {displayCarousel} from './carousel.js';
 
-// Version longue
-if(age<18) {
-    alert("Pas majeur!");
-}
-else {
-    alert("Majeur!");
-}
+displayCarousel();
 
-// Version raccourcie
-// condition ? exprSiVrai : exprSiFaux 
-age<18 ? alert("Pas majeur!") : alert("Majeur");
 
-// -----
 
-let truc = "";
-if(age<18) {
-    truc = "Dégage";
-}
-else {
-    truc = "Viens, y a de la pute";
-}
+/* 
+Créer un fichier game.js avec deux fonctions: 
+createGame qui vient créer une partie avec deux joueurs possédant chacun 10 points
+removePoints qui enlève 1 point au joueur spécifié 
+    (si 1 est précisé en paramètre, on enlève au joueur 1. 
+    Si 2 précisé, on enlève au joueur 2)
 
-let truc = age<18 ? "Dégage" : "Viens, y a de la pute";
+Créer un fichier app.js qui lance une partie et 
+fait perdre 2 points au joueur 1 et 1 au joueur 2
+*/
