@@ -1,71 +1,45 @@
 'use strict';
 
-// Fonction constructeur
-/*
-function Vehicle(model, brand) {
-    this.engine = true;
-    this.model = model;
-    this.brand = brand;
+// Créer une classe animal avec une méthode breathe 
+//(affiche dans la console "**Respire**")
 
-    this.honk = function () {
-        console.log("tututttt");
-    }
-}
-*/
-
-// La même chose en classe
-
-class Vehicle {
-    engine = true;
-
-    constructor(model, brand) {
-        this.model = model;
-        this.brand = brand;
+// PascalCase pour les noms de classe, donc une majuscule pour 
+// la 1ère lettre 
+class Animal {
+    constructor(name) {
+        this.name = name;
     }
 
-    // Klaxonner en français
-    honk() {
-        console.log("Tututtttttt");
+    breathe() {
+        console.log("**Respire**");
     }
 }
 
+// Créer une classe Dog qui hérite d'animal + une méthode bark 
+// (affiche dans la console "**wouf wouf**)
 
-let monVehiculeDeOuf = new Vehicle("Mad", "Ford");
-console.log(monVehiculeDeOuf);
-monVehiculeDeOuf.honk();
-// monVehiculeDeOuf.launchWiper() -> ne fonctionne pas car appartient à classe
-//  Fille!
-
-
-
-// ----- 
-// Supposons que j'aimerai plusieurs types de véhicule dans mon code
-// Par exemple, je voudrai que l'utilisateur puisse avoir une voiture
-// Mais aussi potentiellement une moto
-
-// Hors...
-// Une moto est un véhicule
-// Une voiture est un véhicule
-// Donc, il y a un risque d'une répétition de code.
-
-
-// Pour éviter ça, on va utiliser ce que l'on appelle l'héritage
-// où une classe fille viendra hériter d'une classe mère
-// Donc on va pouvoir créer un objet qui récupère l'adn du papa
-// Mais aussi une part de son propre ADN
-
-
-class Car extends Vehicle  {
-    nbWheels = 4;
-
-    // wiper -> essuie-glace en français
-    launchWiper() {
-        console.log("C'est parti pour les essuies-glace");
+class Dog extends Animal {
+    bark() {
+        console.log(this.name + " -> **wouf wouf**");
     }
 }
 
+// Créer une classe Cat qui hérite d'animal + une méthode meow 
+// (affiche dan s la console "**Miaouuuuu**")
 
-let myCar = new Car("Max", "Mazda");
-console.log(myCar);
-myCar.honk(); // Hérite d'une classe mère donc fonctionne
-myCar.launchWiper();
+class Cat extends Animal {
+    meow() {
+        console.log("**Miaouuuuu**");
+    }
+}
+
+// Instancier un chat et un chien.
+// Afficher pour chacun sa respiration et son cri
+
+let myDog = new Dog("Marty");
+myDog.breathe();
+myDog.bark();
+
+let myCat = new Cat("Mulan");
+myCat.breathe();
+myCat.meow();
