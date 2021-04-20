@@ -1,45 +1,21 @@
 'use strict';
 
-// Créer une classe animal avec une méthode breathe 
-//(affiche dans la console "**Respire**")
+import Warrior from './warrior.js';
+import Magician from './magician.js';
 
-// PascalCase pour les noms de classe, donc une majuscule pour 
-// la 1ère lettre 
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+/*
+_ Dans app.js
+Créer un perso Warrior avec un pseudo rigolo (et de la vie à donf) et un perso Magician avec un pseudo badass (pas beaucoup de vies)
+Lancer kick et hello sur le perso Warrior
+Lancer spell et hello sur le perso Magician
+Chaque classe est dans son propre fichier.  
+La création des persos et leurs actions seront faits dans le app.js (modifié) 
+*/
 
-    breathe() {
-        console.log("**Respire**");
-    }
-}
+let crom = new Warrior(10000, "Crôm");
+crom.kick();
+crom.hello();
 
-// Créer une classe Dog qui hérite d'animal + une méthode bark 
-// (affiche dans la console "**wouf wouf**)
-
-class Dog extends Animal {
-    bark() {
-        console.log(this.name + " -> **wouf wouf**");
-    }
-}
-
-// Créer une classe Cat qui hérite d'animal + une méthode meow 
-// (affiche dan s la console "**Miaouuuuu**")
-
-class Cat extends Animal {
-    meow() {
-        console.log("**Miaouuuuu**");
-    }
-}
-
-// Instancier un chat et un chien.
-// Afficher pour chacun sa respiration et son cri
-
-let myDog = new Dog("Marty");
-myDog.breathe();
-myDog.bark();
-
-let myCat = new Cat("Mulan");
-myCat.breathe();
-myCat.meow();
+let gandalf = new Magician(10, "Gandalf le grissssss");
+gandalf.hello();
+gandalf.spell();
